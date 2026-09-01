@@ -1,0 +1,86 @@
+:root {
+  --primary-purple: #635ce7;
+  --secondary-pink: #fd79a8;
+  --bg-light: #f4f6f9;
+  --card-bg: #ffffff;
+  --text-dark: #2d3436;
+  --text-muted: #636e72;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; }
+
+body { background-color: var(--bg-light); color: var(--text-dark); }
+
+.app-container { display: flex; flex-direction: column; min-height: 100vh; }
+
+.navbar {
+  background: linear-gradient(135deg, var(--primary-purple), var(--secondary-pink));
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.logo { display: flex; align-items: center; gap: 0.75rem; font-size: 1.5rem; font-weight: 700; }
+.logo-icon { background: rgba(255,255,255,0.2); padding: 6px; border-radius: 12px; display: flex; }
+
+.user-profile { display: flex; align-items: center; gap: 1rem; }
+.avatar { background: white; color: var(--primary-purple); padding: 6px; border-radius: 50%; display: flex; }
+
+.main-layout { display: flex; flex: 1; }
+
+.sidebar {
+  width: 260px;
+  background: white;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  border-right: 1px solid #e2e8f0;
+}
+
+.nav-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.85rem 1rem;
+  border: none;
+  background: transparent;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.nav-btn.active {
+  background: var(--primary-purple);
+  color: white;
+  box-shadow: 0 4px 12px rgba(108, 92, 231, 0.3);
+}
+
+.content-area { flex: 1; padding: 2.5rem; }
+
+.subtitle { color: var(--text-muted); margin-top: 0.25rem; margin-bottom: 2rem; }
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  background: white;
+  border-radius: 16px;
+  padding: 1.75rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+  border-top: 5px solid var(--primary-purple);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.metric { font-size: 2.25rem; font-weight: bold; margin-top: 0.5rem; }
