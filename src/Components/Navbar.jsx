@@ -26,7 +26,7 @@ export default function Navbar({ activeTab, setActiveTab }) {
       <motion.header 
         initial={{ y: -50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.5, ease: 'easeOut' }}
+        transition={{ duration: 1.5, ease: 'easeOut' }}
         style={{
           display: 'flex',
           alignItems: 'center',
