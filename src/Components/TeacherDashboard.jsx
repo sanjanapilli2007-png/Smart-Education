@@ -2,11 +2,14 @@ import React, { useState } from 'react';
 import TeacherStatModal from './TeacherStatModal.jsx';
 import ReferenceVideosModal from './ReferenceVideosModal.jsx'; // <--- Import
 import TeacherQuizBuilder from './TeacherQuizBuilder.jsx';
-
+import AILessonPlannerModal from './AILessonPlannerModal.jsx';
+import QuestionPaperModal from './QuestionPaperModal.jsx';
 export default function TeacherDashboard() {
   const [activeModal, setActiveModal] = useState(null); // 'classes', 'pending', 'attendance'
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false); // <--- State for Video Modal
-
+  const [isAILessonOpen, setIsAILessonOpen] = useState(false);
+  const [isQuestionPaperOpen, setIsQuestionPaperOpen] = useState(false);
+   // <--- State for AI Lesson Planner Modal
   return (
     <div style={{ maxWidth: '600px', margin: '40px auto', padding: '0 20px', fontFamily: 'serif' }}>
       <p style={{ fontSize: '1.2rem', color: '#1f2937', marginBottom: '32px' }}>
@@ -65,6 +68,30 @@ export default function TeacherDashboard() {
             15 Videos
           </span>
         </div>
+        {/* AI Lesson Planner (NEW TOPIC SECTION) */}
+<div
+  onClick={() => setIsAILessonOpen(true)}
+  style={{ cursor: 'pointer', padding: '8px', borderRadius: '8px' }}
+>
+  <h2 style={{ fontSize: '1.4rem', fontWeight: 'bold', margin: '0 0 8px 0', color: '#1e293b' }}>
+    AI Lesson Planner
+  </h2>
+  <span style={{ fontSize: '1.5rem', color: '#0284c7', fontWeight: '500' }}>
+    Generate Plans
+  </span>
+</div>
+{/* Question Paper Generator (NEW TOPIC SECTION) */}
+<div
+  onClick={() => setIsQuestionPaperOpen(true)}
+  style={{ cursor: 'pointer', padding: '8px', borderRadius: '8px' }}
+>
+  <h2 style={{ fontSize: '1.4rem', fontWeight: 'bold', margin: '0 0 8px 0', color: '#1e293b' }}>
+    Question Paper Generator
+  </h2>
+  <span style={{ fontSize: '1.5rem', color: '#0284c7', fontWeight: '500' }}>
+    Exams & Rubrics
+  </span>
+</div>
       </div>
 
       {/* Render Modals */}
@@ -77,6 +104,14 @@ export default function TeacherDashboard() {
       <ReferenceVideosModal 
         isOpen={isVideoModalOpen} 
         onClose={() => setIsVideoModalOpen(false)} 
+      />
+      <AILessonPlannerModal 
+        isOpen={isAILessonOpen} 
+        onClose={() => setIsAILessonOpen(false)} 
+      />
+      <QuestionPaperModal 
+        isOpen={isQuestionPaperOpen} 
+        onClose={() => setIsQuestionPaperOpen(false)} 
       />
     </div>
   );

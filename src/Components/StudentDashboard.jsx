@@ -3,7 +3,9 @@ import QuizModal from './QuizModal.jsx';
 import StudyPlanModal from './StudyPlanModal.jsx';
 import StudyMaterialsModal from './StudyMaterialsModal.jsx';
 import StrengthWeaknessModal from './StrengthWeaknessModal.jsx';
-import ProgressTrackingModal from './ProgressTrackingModal.jsx'; // <--- Import
+import ProgressTrackingModal from './ProgressTrackingModal.jsx';
+import StudentDetailsModal from './StudentDetailsModal.jsx';
+import DoubtChatModal from './DoubtChatModal.jsx'; // <--- Import
 
 export default function StudentDashboard() {
   const [isQuizOpen, setIsQuizOpen] = useState(false);
@@ -11,8 +13,16 @@ export default function StudentDashboard() {
   const [isMaterialsOpen, setIsMaterialsOpen] = useState(false);
   const [isStrengthOpen, setIsStrengthOpen] = useState(false);
   const [isProgressOpen, setIsProgressOpen] = useState(false); // <--- State
-
+  const [isStudentDetailsOpen, setIsStudentDetailsOpen] = useState(false); // <--- State
+  const [isDoubtOpen, setIsDoubtOpen] = useState(false);
   const listItems = [
+    {
+  id: 0,
+  icon: '🎓',
+  title: 'Student Details',
+  description: 'View 60 students divided into Section A and Section B.',
+  onClick: () => setIsStudentDetailsOpen(true)
+},
     {
       id: 1,
       icon: '📖',
@@ -47,7 +57,14 @@ export default function StudentDashboard() {
       title: 'Progress Tracking',
       description: 'See your learning journey through simple and meaningful graphs.',
       onClick: () => setIsProgressOpen(true) // <--- Trigger Progress Modal
-    }
+    },
+    {
+    id: 6,
+    icon: '💬',
+    title: 'Ask Doubts & Chat',
+    description: 'Post your doubts, ask questions to teachers, and participate in discussion.',
+    onClick: () => setIsDoubtOpen(true)
+  },
   ];
 
   return (
@@ -87,6 +104,9 @@ export default function StudentDashboard() {
       <StudyPlanModal isOpen={isPlanOpen} onClose={() => setIsPlanOpen(false)} />
       <StrengthWeaknessModal isOpen={isStrengthOpen} onClose={() => setIsStrengthOpen(false)} />
       <ProgressTrackingModal isOpen={isProgressOpen} onClose={() => setIsProgressOpen(false)} />
+      <StudentDetailsModal isOpen={isStudentDetailsOpen} onClose={() => setIsStudentDetailsOpen(false)} />
+      <DoubtChatModal isOpen={isDoubtOpen} onClose={() => setIsDoubtOpen(false)} 
+/>  
     </div>
   );
 }
